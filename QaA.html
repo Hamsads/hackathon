@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Q&A</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: wheat;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .question {
+            background-color: #f2f2f2;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .answer {
+            display: none;
+            padding: 10px;
+            background-color: #e6f3ff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cybersecurity Q&A</h1>
+
+    <div class="qa-container">
+        <div class="question" onclick="toggleAnswer(this)">
+            <h3>Q: What is a firewall?</h3>
+        </div>
+        <div class="answer">
+            <p>A: A firewall is a network security device that monitors and filters incoming and outgoing network traffic based on predetermined security rules. It acts as a barrier between trusted internal networks and untrusted external networks, such as the Internet.</p>
+        </div>
+
+        <div class="question" onclick="toggleAnswer(this)">
+            <h3>Q: What is two-factor authentication (2FA)?</h3>
+        </div>
+        <div class="answer">
+            <p>A: Two-factor authentication (2FA) is a security process that requires users to provide two different authentication factors to verify their identity. This typically involves something you know (like a password) and something you have (like a mobile device or security token).</p>
+        </div>
+
+        <div class="question" onclick="toggleAnswer(this)">
+            <h3>Q: What is a VPN?</h3>
+        </div>
+        <div class="answer">
+            <p>A: A VPN (Virtual Private Network) is a service that allows you to create a secure, encrypted connection to another network over the Internet. It masks your IP address and encrypts your online activity, enhancing your privacy and security, especially when using public Wi-Fi networks.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(question) {
+            var answer = question.nextElementSibling;
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+            } else {
+                answer.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

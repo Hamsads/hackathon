@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            background-color: rgb(14, 14, 14);
+        }
+        .sidebar {
+            width: 250px;
+            height: 100%;
+            background-color: #0a3042;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            transition: left 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            padding-top: 60px;
+            border-left: 15px solid black;
+            border-top: 15px solid black;
+            border-bottom: 15px solid black;
+            box-sizing: border-box;
+            animation: fadeIn 1s ease-out forwards;
+        }
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            transition: background 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            background: none;
+            border: none;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+        }
+        .main-content {
+            margin-left: 0;
+            transition: margin-left 0.3s ease;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: left;
+            background-color: rgb(0, 45, 48);
+            border: 15px solid black;
+            box-sizing: border-box;
+            animation: popIn 1s ease-out forwards;
+        }
+        .main-content h1 {
+            margin-top: 30px;
+            margin-left: 50px;
+            text-align: center;
+        }
+        .open-btn {
+            font-size: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .main-text {
+            color: rgb(138, 130, 130);
+            font-family: sans-serif;
+            font-size: 1.5em;
+            margin-bottom: 60px;
+            padding: 0px;
+        }
+        h1 {
+            font-size: 5em;
+            text-align: left;
+            color: white;
+        }
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .image-container {
+            flex: 0 0 auto;
+            margin-right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Add space between images */
+        }
+        .image-container img {
+            width: 350px;
+            height: 400px;
+            object-fit: cover; /* This ensures the image covers the area without distortion */
+        }
+        .text-container {
+            flex: 1 1 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">×</button>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="QaA.html">Q & As</a>
+    </div>
+    <div class="main-content" id="main-content">
+        <button class="open-btn" onclick="toggleSidebar()">☰</button>
+        <h1>CyberSecurity "STUFF"</h1>
+        <div class="content-wrapper">
+            <div class="image-container">
+                <img src="https://programmerhumor.io/wp-content/uploads/2023/10/programmerhumor-io-programming-memes-45907679ef45313.png " alt="sax" style="width:300px;height:300px";
+                     alt="Programming meme">
+                <img src="https://scontent.fman4-2.fna.fbcdn.net/v/t1.6435-9/49447867_1184033935096592_8796661302215835648_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=0327a3&_nc_ohc=8D29cV8Kqd0Q7kNvgEPYlMF&_nc_ht=scontent.fman4-2.fna&gid=Ah9la1FXmtWtdIygWFfIKdV&oh=00_AYB-1VqbZ9ATQU0vQNTWXf9gXDbjaf-0uvhVNSMsPVxMqQ&oe=66D37510" alt="sax2" style="width:300px;height:300px";
+                     alt="Second image">
+            </div>
+            <div class="text-container">
+                <p class="main-text">Cybersecurity involves protecting systems, networks, and data from digital attacks, theft, and damage. It ensures confidentiality by making sure information is accessible only to authorized individuals, integrity by safeguarding the accuracy and completeness of data and processes, and availability by ensuring authorized users can access information when needed.</p>
+                <p class="main-text">Cybersecurity encompasses risk management, which includes identifying potential threats and vulnerabilities through risk assessment and implementing measures to reduce their likelihood and impact. It also involves threat detection and response, where systems and networks are continuously monitored for security breaches, and procedures are developed to respond to incidents effectively.</p>
+                <p class="main-text">Compliance with laws, regulations, and standards related to data protection and privacy is crucial, as is the creation and enforcement of security policies. Education and training are integral, with awareness programs for employees and specialized training for security staff. Technology plays a significant role, with the deployment of security tools like firewalls, antivirus software, and intrusion detection systems, along with system hardening to enhance security.</p>
+                <p class="main-text">Incident recovery focuses on disaster recovery plans and ensuring business continuity during and after security incidents. Collaboration and intelligence sharing with other organizations, government agencies, and industry bodies are essential for improving overall security. Overall, cybersecurity aims to protect an organization's digital infrastructure and data from malicious activities, ensuring the confidentiality, integrity, and availability of information.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+            if (sidebar.style.left === '-250px' || sidebar.style.left === '') {
+                sidebar.style.left = '0';
+                mainContent.style.marginLeft = '250px';
+            } else {
+                sidebar.style.left = '-250px';
+                mainContent.style.marginLeft = '0';
+            }
+        }
+    </script>
+</body>
+</html>

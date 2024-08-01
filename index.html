@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh; /* Changed from height to min-height */
+            overflow-x: hidden; /* Allow vertical scrolling, prevent horizontal */
+            background-color: black;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100%;
+            background-color: #0a3042;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            transition: left 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            padding-top: 60px;
+            border-left: 15px solid black;
+            border-top: 15px solid black;
+            border-bottom: 15px solid black;
+            box-sizing: border-box;
+            z-index: 1000; /* Ensure sidebar is above other content */
+        }
+        .sidebar a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+            transition: background 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            background: none;
+            border: none;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+        }
+        .main-content {
+            margin-left: 0;
+            transition: margin-left 0.3s ease;
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: left;
+            background-color: rgb(8, 110, 110);
+            border: 15px solid black;
+            box-sizing: border-box;
+            min-height: 100vh; /* Ensure main content takes at least full viewport height */
+        }
+
+        .main-content h1 {
+            margin-top: 30px;
+            text-align: center;
+            text-decoration: overline;
+        }
+        
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        .open-btn {
+            font-size: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: fixed; /* Changed from absolute to fixed */
+            top: 20px;
+            left: 20px;
+            z-index: 1001; /* Ensure it's above the sidebar */
+        }
+
+        h1 {
+            font-size: 5em;
+            margin: 50px;
+            margin-bottom: 100px;
+        }
+        h2 {
+            font-size: 2em;
+            margin: 50px;
+            margin-top: 20px;
+        }
+        h3 {
+            font-size: 1.5em;
+            margin: 5px;
+            margin-top: 45px;
+            text-align: center;
+        }
+
+        .flash {
+            font-family: monospace;
+            font-size: 2em;
+            animation: color-change 2s infinite;
+        }
+
+        @keyframes color-change {
+            0% { color: red; }
+            50% { color: blue; }
+            100% { color: lightgreen; }
+        }
+
+        p {
+            font-size: 1em;
+            margin: 5;
+            max-width: 800px;
+        }
+
+        ul {
+            border: 5px solid black;
+            padding: 20px;
+            margin: 5px;
+            max-width: 200px;
+            max-height: 45px;
+            align-content: center;
+        }
+
+        ul li {
+            font: bold;
+        }
+
+        .link {
+            font-size: 1.5em;
+            padding: 0;
+            margin: 0;
+            margin-bottom: 10px;
+            color: blue;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .link:hover {
+            color:blue;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">×</button>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="QaA.html">Q & As</a>
+    </div>
+    <div class="main-content" id="main-content">
+        <button class="open-btn" onclick="toggleSidebar()">☰</button>
+        <h1>🥶 CyberSecurity stuff 🥶</h1>
+        <p class="center flash">go top left... the side-bar took ages... ai sucks sometimes 🤦‍♂️ used my brain 🤫🧏🏻‍♂️ </p>
+        <img class="center" src="https://www.pwc.com/mt/en/services/cyber-security/cyber-attack-.gif" alt="mandem" style="width:1000px;height:500px">
+       
+        <h3>⬇️ Common Q/As ⬇️</h3><a class="link" href="QaA.html">click here</a>
+    </div>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+            if (sidebar.style.left === '-250px' || sidebar.style.left === '') {
+                sidebar.style.left = '0';
+                mainContent.style.marginLeft = '250px';
+            } else {
+                sidebar.style.left = '-250px';
+                mainContent.style.marginLeft = '0';
+            }
+        }
+    </script>
+</body>
+</html>
